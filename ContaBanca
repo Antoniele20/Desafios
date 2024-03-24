@@ -1,0 +1,37 @@
+public static void main(String[] args) {
+        ContaBancaria minhaConta = new ContaBancaria(123456, "Fulano", 1000.0);
+
+        minhaConta.depositar(500.0);
+        minhaConta.sacar(200.0);
+        minhaConta.sacar(1500.0); // Tentativa de sacar mais do que o saldo disponível
+
+        System.out.println("Saldo atual: " + minhaConta.getSaldo());
+    }
+}
+
+
+public class ContaBancaria {
+    private int numeroConta;
+    private String nomeTitular;
+    private double saldo;
+
+    public ContaBancaria(int numeroConta, String nomeTitular, double saldoInicial) {
+        this.numeroConta = numeroConta;
+        this.nomeTitular = nomeTitular;
+        this.saldo = saldoInicial;
+    }
+    public void depositar(double valor) {
+        saldo += valor;
+        System.out.println("Depósito de " + valor + " realizado com sucesso.");
+    }
+    public void sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            System.out.println("Saque de " + valor + " realizado com sucesso.");
+        } else {
+            System.out.println("Saldo insuficiente para realizar o saque.");
+        }
+    }
+    public double getSaldo() {
+        return saldo;
+    }
