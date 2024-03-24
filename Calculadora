@@ -9,7 +9,6 @@ public class Main {
         }
     }
 
-
 public class Calculadora {
     public static double adicionar(double a, double b) {
         return a + b;
