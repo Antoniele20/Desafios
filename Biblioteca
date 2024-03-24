@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner leitor = new Scanner(System.in);
+        List<Livros> Biblioteca = new ArrayList<Livros>();
+
+            System.out.println("---");
+            String matricula = leitor.nextLine();
+            String nome = leitor.nextLine();
+            Float nota1 = Float.parseFloat(leitor.nextLine());
+            Float nota2 = Float.parseFloat(leitor.nextLine());
+
+            Livros novoLivro = new Livro(título,autor,ano);
+            Biblioteca.add(novoLivro);
+    }
