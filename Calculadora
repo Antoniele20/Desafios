@@ -1,29 +1,32 @@
 public class Main {
         public static void main(String[] args) {
-            double num1 = 10;
-            double num2 = 5;
+            Int num1 = 10;
+            Int num2 = 5;
             System.out.println("Adição: " + Calculadora.adicionar(num1, num2));
+
             System.out.println("Subtração: " + Calculadora.subtrair(num1, num2));
+
             System.out.println("Multiplicação: " + Calculadora.multiplicar(num1, num2));
+
             System.out.println("Divisão: " + Calculadora.dividir(num1, num2));
         }
     }
 
 public class Calculadora {
-    public static double adicionar(double a, double b) {
+    public static Int adicionar(double a, double b) {
         return a + b;
     }
-    public static double subtrair(double a, double b) {
+    public static Int subtrair(double a, double b) {
         return a - b;
     }
-    public static double multiplicar(double a, double b) {
+    public static Int multiplicar(double a, double b) {
         return a * b;
     }
-    public static double dividir(double a, double b) {
+    public static Int dividir(double a, double b) {
         if (b == 0) {
-            System.out.println("Erro: Divisão por zero!");
-            return Double.NaN;
+ System.out.println("Erro: Divisão por zero!");
+return Double.NaN;
         }
-        return a / b;
+return a / b;
     }
 }
