@@ -3,7 +3,7 @@ public static void main(String[] args) {
 
         minhaConta.depositar(500.0);
         minhaConta.sacar(200.0);
-        minhaConta.sacar(1500.0); // Tentativa de sacar mais do que o saldo disponível
+        minhaConta.sacar(1500.0); 
 
         System.out.println("Saldo atual: " + minhaConta.getSaldo());
     }
@@ -12,18 +12,18 @@ public static void main(String[] args) {
 public class ContaBancaria {
     private int numeroConta;
     private String nomeTitular;
-    private double saldo;
+    private Float saldo;
 
-    public ContaBancaria(int numeroConta, String nomeTitular, double saldoInicial) {
+    public ContaBancaria(int numeroConta, String nomeTitular, Float saldoInicial) {
         this.numeroConta = numeroConta;
         this.nomeTitular = nomeTitular;
         this.saldo = saldoInicial;
     }
-    public void depositar(double valor) {
+    public void depositar(Float valor) {
         saldo += valor;
         System.out.println("Depósito de " + valor + " realizado com sucesso.");
     }
-    public void sacar(double valor) {
+    public void sacar(Float valor) {
         if (saldo >= valor) {
             saldo -= valor;
             System.out.println("Saque de " + valor + " realizado com sucesso.");
@@ -31,6 +31,6 @@ public class ContaBancaria {
             System.out.println("Saldo insuficiente para realizar o saque.");
         }
     }
-    public double getSaldo() {
+    public Float getSaldo() {
         return saldo;
     }
