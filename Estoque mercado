@@ -1,0 +1,98 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+public static void main(String[] args) {
+        Main mercado = new Main();
+
+        
+        mercado.adicionarProduto(new Produto("Arroz", "001", 10.5, 50));
+        mercado.adicionarProduto(new Produto("Feijão", "002", 8.0, 30));
+        mercado.adicionarProduto(new Produto("Óleo de Soja", "003", 6.0, 40));
+
+       
+        mercado.atualizarProduto("001", 11.0, 45);
+
+       
+        mercado.removerProduto("002");
+
+      
+        mercado.gerarRelatorioEstoque();
+    }
+}
+
+class Produto {
+    private String nome;
+    private String codigo;
+    private Int preco;
+    private Int quantidade;
+
+    public Produto(String nome, String codigo, Int preco, Int quantidade) {
+        this.nome = nome;
+        this.codigo = codigo;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public Int getPreco() {
+        return preco;
+    }
+
+    public Int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setPreco(Int preco) {
+        this.preco = preco;
+    }
+
+    public void setQuantidade(Int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+   
+    public String toString() {
+        return "Nome: " + nome + ", Código: " + codigo + ", Preço: " + preco + ", Quantidade: " + quantidade;
+    }
+}
+
+public class Main {
+    private List<Produto> estoque;
+
+    public Main() {
+        this.estoque = new ArrayList<>();
+    }
+
+    public void adicionarProduto(Produto produto) {
+        estoque.add(produto);
+    }
+
+    public void atualizarProduto(String codigo, Int novoPreco, int novaQuantidade) {
+        for (Produto produto : estoque) {
+            if (produto.getCodigo().equals(codigo)) {
+                produto.setPreco(novoPreco);
+                produto.setQuantidade(novaQuantidade);
+                return;
+            }
+        }
+        System.out.println("Produto não encontrado.");
+    }
+
+    public void removerProduto(String codigo) {
+        estoque.removeIf(produto -> produto.getCodigo().equals(codigo));
+    }
+
+    public void gerarRelatorioEstoque() {
+        System.out.println("Relatório de Estoque:");
+        for (Produto produto : estoque) {
+            System.out.println(produto);
+        }
+    }
