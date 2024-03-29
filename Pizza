@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+       
+        Pizza mussarela = new Pizza("Mussarela", 30.0, List.of("Queijo mussarela"));
+        Pizza calabresa = new Pizza("Calabresa", 35.0, List.of("Calabresa", "Cebola", "Molho de tomate"));
+
+        
+        Pedido pedido = new Pedido();
+        pedido.adicionarPizza(mussarela);
+        pedido.adicionarPizza(calabresa);
+        pedido.setEnderecoEntrega("Rua da Pizzaria, 123");
+
+       
+        System.out.println(pedido);
+    }
+}
+
+class Pizza {
+    private String nome;
+    private Float valor;
+    private List<String> ingredientes;
+
+    public Pizza(String nome, Float valor, List<String> ingredientes) {
+        this.nome = nome;
+        this.valor = valor;
+        this.ingredientes = ingredientes;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    public Float getValor() {
+        return valor;
+    }
+    public List<String> getIngredientes() {
+        return ingredientes;
+    }
+
+    public String toString() {
+        return "Nome: " + nome + ", Valor: " + valor + ", Ingredientes: " + ingredientes;
+    }
+}
+
+class Pedido {
+    private List<Pizza> pizzas;
+    private String enderecoEntrega;
+
+    public Pedido() {
+        this.pizzas = new ArrayList<>();
+    }
+
+    public void adicionarPizza(Pizza pizza) {
+        pizzas.add(pizza);
+    }
+
+    public void setEnderecoEntrega(String enderecoEntrega) {
+        this.enderecoEntrega = enderecoEntrega;
+    }
+
+    public void cancelarPedido() {
+        pizzas.clear();
+        enderecoEntrega = null;
+    }
+
+    public Float calcularTotal() {
+        Float total = 0;
+        for (Pizza pizza : pizzas) {
+            total += pizza.getValor();
+        }
+        return total;
+    }
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Pedido:\n");
+        for (Pizza pizza : pizzas) {
+            sb.append(pizza).append("\n");
+        }
+        sb.append("Endereço de Entrega: ").append(enderecoEntrega).append("\n");
+        sb.append("Total: ").append(calcularTotal());
+        return sb.toString();
+    }
+}
