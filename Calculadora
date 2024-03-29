@@ -1,3 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
 public class Main {
         public static void main(String[] args) {
             Int num1 = 10;
@@ -11,6 +17,7 @@ public class Main {
             System.out.println("Divisão: " + Calculadora.dividir(num1, num2));
         }
     }
+}
 
 public class Calculadora {
     public static Int adicionar(double a, double b) {
