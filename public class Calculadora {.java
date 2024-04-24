@@ -1,18 +1,18 @@
-public class Calculadora {
-    public static Int adicionar(double a, double b) {
-        return a + b;
+public class Biblioteca {
+    String Titulo;
+    String Autor;
+    float Ano;
+
+    Aluno (String ti, String aut,Float an) {
+        System.out.println("~ novo livro adicionado - " + ti + " ~");
+        Titulo = ti;
+        Autor = aut;
+        Ano = an;
+    
+        if(mostrar){
+        System.out.println("Nome do livro: " + Titulo);
+        System.out.println("Autor" + Autor);
+        System.out.println("Ano de publicação: " + Ano);
     }
-    public static Int subtrair(double a, double b) {
-        return a - b;
-    }
-    public static Int multiplicar(double a, double b) {
-        return a * b;
-    }
-    public static Int dividir(double a, double b) {
-        if (b == 0) {
- System.out.println("Erro: Divisão por zero!");
-return Double.NaN;
-        }
-return a / b;
-    }
+}
 }
